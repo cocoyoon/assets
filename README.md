@@ -1,5 +1,3 @@
 
-**Assets for my dev stack**
-
-*_Any kind of project_*
+**Assets for dev**
 
