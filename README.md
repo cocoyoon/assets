@@ -1,6 +1,4 @@
 
-Assets for my dev stack
+** Assets for my dev stack
+*_Any kind of project_*
 
-- Mobile apps
-- Algorithms with various languages
-- OS
