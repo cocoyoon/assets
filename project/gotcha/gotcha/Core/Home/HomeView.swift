@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
+    
+    @EnvironmentObject var AuthVM: AuthViewModel
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             ScrollView([.horizontal, .vertical], showsIndicators: false)
@@ -29,13 +32,16 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .font(.custom("Bangers", fixedSize: 50))
                 .foregroundColor(Color.theme.Signature)
+                .onTapGesture {
+                    AuthVM.signOut()
+                }
         }
         .background(Color.theme.MainBackground)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

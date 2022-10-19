@@ -6,12 +6,27 @@
 //
 
 import SwiftUI
-
+import Firebase
+import GoogleSignIn
+    
 @main
 struct gotchaApp: App {
+    
+    @StateObject var AuthVM = AuthViewModel()
+    
+    init() {
+        setupAuthentication()
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SwitchView()
+                .environmentObject(AuthVM)
         }
+    }
+}
+
+extension gotchaApp {
+    private func setupAuthentication() {
+        FirebaseApp.configure()
     }
 }
