@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GoogleSignInButton: View {
     
-    @EnvironmentObject var AuthVM: AuthViewModel
+    @EnvironmentObject var GoogleAuthManager: GoogleAuth
     
     var body: some View {
         
@@ -28,11 +28,10 @@ struct GoogleSignInButton: View {
                     .foregroundColor(Color.theme.MainText)
                     .padding(.trailing, 30)
             }
-            .frame(width: .infinity)
             .background(Color.theme.MainBackground)
             .cornerRadius(15)
             .onTapGesture {
-                AuthVM.signIn()
+                GoogleAuthManager.signIn()
             }
         }
     }

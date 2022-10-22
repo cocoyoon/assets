@@ -9,19 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var AuthVM: AuthViewModel
+    @EnvironmentObject var AuthVM: GoogleAuth
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             ScrollView([.horizontal, .vertical], showsIndicators: false)
             {
-                VStack(spacing: 30) {
-                    ForEach(0..<20) { _ in
+                VStack(spacing: 20) {
+                    ForEach(0..<40) { _ in
                         HStack(spacing: 20) {
-                            ForEach(0..<20) { _ in
+                            ForEach(0..<10) { _ in
                                 RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 200, height: 300)
-                                    .foregroundColor(Color.gray)
+                                    .frame(width: 250, height: 400)
+                                    .foregroundColor(Color.theme.SheetBackground)
                             }
                         }
                     }

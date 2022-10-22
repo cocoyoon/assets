@@ -7,9 +7,10 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 import GoogleSignIn
 
-class AuthViewModel: ObservableObject {
+class GoogleAuth: ObservableObject {
     
     @Published var state: SignInStatus
     
@@ -21,6 +22,7 @@ class AuthViewModel: ObservableObject {
     enum SignInStatus {
         case signedIn
         case signedOut
+        case newUser
     }
     
     func signIn() {
@@ -62,6 +64,8 @@ class AuthViewModel: ObservableObject {
             return
         }
         
+        let db = Firestore.firestore()
+        
         // User handling
         guard let auth = user?.authentication else { return } // Ensure authentication
         guard let idToken = auth.idToken else { return } // Ensure idToken for user
@@ -71,7 +75,24 @@ class AuthViewModel: ObservableObject {
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                self.state = .signedIn
+                guard let user = Auth.auth().currentUser else { return }
+                print("User is \(user.uid)")
+                let docRef = db.collection("users").document(user.uid)
+                docRef.getDocument { doc, err in
+                    if let err = err {
+                        print("Error getting documents. \(err)")
+                    } else {
+                        // No error
+                        guard let doc = doc else { return }
+                        if doc.exists {
+                            print("Already existed user!")
+                            self.state = .signedIn
+                        } else {
+                            print("New User!")
+                            self.state = .newUser
+                        }
+                    }
+                }
             }
         }
     }

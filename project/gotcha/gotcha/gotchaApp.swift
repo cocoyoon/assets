@@ -12,7 +12,7 @@ import GoogleSignIn
 @main
 struct gotchaApp: App {
     
-    @StateObject var AuthVM = AuthViewModel()
+    @StateObject var GoogleAuthManager = GoogleAuth()
     
     init() {
         setupAuthentication()
@@ -20,7 +20,7 @@ struct gotchaApp: App {
     var body: some Scene {
         WindowGroup {
             SwitchView()
-                .environmentObject(AuthVM)
+                .environmentObject(GoogleAuthManager)
         }
     }
 }

@@ -9,12 +9,13 @@ import SwiftUI
 
 struct SwitchView: View {
     
-    @EnvironmentObject var AuthVM: AuthViewModel
+    @EnvironmentObject var GoogleAuthManager: GoogleAuth
     
     var body: some View {
-        switch AuthVM.state {
+        switch GoogleAuthManager.state {
             case .signedIn: TabView()
-            case .signedOut: LaunchView()
+            case .signedOut: LogInView()
+            case .newUser: UserConfigView()
         }
     }
 }
@@ -22,6 +23,7 @@ struct SwitchView: View {
 struct SwitchView_Previews: PreviewProvider {
     static var previews: some View {
         SwitchView()
-            .environmentObject(AuthViewModel())
+            .environmentObject(GoogleAuth())
     }
 }
+

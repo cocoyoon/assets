@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct LaunchView: View {
+struct LogInView: View {
     
-    @EnvironmentObject var AuthVM: AuthViewModel
+    @EnvironmentObject var GoogleAuthManager: GoogleAuth
     
     var body: some View {
         
@@ -36,8 +36,8 @@ struct LaunchView: View {
     }
 }
 
-struct LaunchView_Previews: PreviewProvider {
+struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchView()
+        LogInView()
     }
 }
