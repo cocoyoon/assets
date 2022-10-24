@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var AuthVM: GoogleAuth
+    @EnvironmentObject var GoogleAuthManager: GoogleAuth
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -17,15 +17,18 @@ struct HomeView: View {
             {
                 VStack(spacing: 20) {
                     ForEach(0..<40) { _ in
-                        HStack(spacing: 20) {
+                        HStack(alignment: .top, spacing: 0) {
                             ForEach(0..<10) { _ in
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: 250, height: 400)
-                                    .foregroundColor(Color.theme.SheetBackground)
+                                Image("dummy")
+                                    .resizable()
+                                    .aspectRatio(CGSize(width: 12, height: 16),contentMode: .fit)
+                                    .cornerRadius(20)
+                                    .frame(width: 250, height: 300)
                             }
                         }
                     }
-                }.frame(maxWidth: .infinity)
+                }
+                .frame(maxWidth: .infinity)
             }.font(.largeTitle)
             Text("GOTCHA")
                 .padding(20)
@@ -33,7 +36,7 @@ struct HomeView: View {
                 .font(.custom("Bangers", fixedSize: 50))
                 .foregroundColor(Color.theme.Signature)
                 .onTapGesture {
-                    AuthVM.signOut()
+                    GoogleAuthManager.signOut()
                 }
         }
         .background(Color.theme.MainBackground)

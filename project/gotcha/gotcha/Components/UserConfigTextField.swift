@@ -14,47 +14,56 @@ import SwiftUI
 
 struct UserConfigTextField: View {
     
+    @EnvironmentObject var GoogleAuthManager: GoogleAuth
     @State private var userText: String = ""
     @State private var showNextButton: Bool = false
+    @State private var isLoading: Bool = false
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 0) {
-            
-            Text("닉네임을 설정해주세요 🙂")
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(Color.theme.MainText)
-                .padding(.leading, 30)
-                .padding(.bottom, 30)
+        if isLoading {
+            ProgressView()
+        } else {
+            VStack(alignment: .leading, spacing: 0) {
                 
-            
-            HStack {
-                TextField(
-                    "입력하기",
-                    text: $userText
-                )
-                .foregroundColor(Color.theme.MainText)
-                .textFieldStyle(UnderlineTextFieldStyle())
-                .padding(.leading, 30)
-                .padding(.trailing, 30)
-                .onTapGesture {
-                    withAnimation {
-                        showNextButton = true
-                    }
-                }
-                
-                if showNextButton {
+                Text("닉네임을 설정해주세요 🙂")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.theme.MainText)
+                    .padding(.leading, 30)
+                    .padding(.bottom, 30)
                     
-                    Image(systemName: "arrow.right.square.fill")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.theme.MainText)
-                        .onTapGesture {
-                            ()
+                HStack {
+                    TextField(
+                        "입력하기",
+                        text: $userText
+                    )
+                    .foregroundColor(Color.theme.MainText)
+                    .textFieldStyle(UnderlineTextFieldStyle())
+                    .padding(.leading, 30)
+                    .padding(.trailing, 30)
+                    .onTapGesture {
+                        withAnimation {
+                            showNextButton = true
                         }
-                        .padding(.trailing, 40)
-                        .transition(.slide)
+                    }
+                    
+                    if showNextButton {
+                        
+                        Button {
+                            isLoading = true
+                            NetworkManager.writeDataFS(collectionName: "users", data: ["nick": userText]) {
+                                GoogleAuthManager.setSignedIn()
+                            }
+                        } label: {
+                            Image(systemName: "arrow.right.square.fill")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.theme.MainText)
+                                .padding(.trailing, 40)
+                                .transition(.slide)
+                        }
+                    }
                 }
             }
         }
@@ -63,8 +72,7 @@ struct UserConfigTextField: View {
 
 struct UserConfigSetting_Previews: PreviewProvider {
     static var previews: some View {
-        UserConfigTextField()
-            .preferredColorScheme(.dark)
+        UserConfigView()
     }
 }
 

@@ -29,6 +29,7 @@ struct LogInView: View {
                     .foregroundColor(Color.theme.Signature)
                     .font(.custom("Bangers", fixedSize: 100))
                     .padding(.bottom, 200)
+                    .shadow(color: Color.black, radius: 0, x: 5, y: 10)
                 
                 GoogleSignInButton()
             }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UserConfigView: View {
     
+    @ObservedObject var configVM: UserConfigViewModel = UserConfigViewModel()
+    
     var body: some View {
         ZStack {
             Color

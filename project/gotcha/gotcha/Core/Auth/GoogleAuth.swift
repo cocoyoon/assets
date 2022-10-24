@@ -12,11 +12,9 @@ import GoogleSignIn
 
 class GoogleAuth: ObservableObject {
     
-    @Published var state: SignInStatus
+    @Published var state: SignInStatus = .signedOut
     
-    init() {
-        self.state = .signedOut
-    }
+    init() {}
     
     // Sign-in Status
     enum SignInStatus {
@@ -54,6 +52,10 @@ class GoogleAuth: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func setSignedIn() {
+        self.state = .signedIn
     }
     
     private func authenticateUser(who user: GIDGoogleUser?, _ error: Error?) {

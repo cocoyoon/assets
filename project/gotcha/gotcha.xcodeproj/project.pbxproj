@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA7052B82906D97300D70E33 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7052B72906D97300D70E33 /* Brand.swift */; };
 		BA8B3B2D28FEE3E60007ABD1 /* gotchaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B3B2C28FEE3E60007ABD1 /* gotchaApp.swift */; };
 		BA8B3B3128FEE3E90007ABD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8B3B3028FEE3E90007ABD1 /* Assets.xcassets */; };
 		BA8B3B3428FEE3E90007ABD1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8B3B3328FEE3E90007ABD1 /* Preview Assets.xcassets */; };
@@ -46,6 +47,9 @@
 		BAD052D92900500900EEABFB /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD052D82900500900EEABFB /* GoogleSignInButton.swift */; };
 		BAD052DD2900515D00EEABFB /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD052DC2900515D00EEABFB /* google.png */; };
 		BAD052E0290057A700EEABFB /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD052DF290057A700EEABFB /* SwitchView.swift */; };
+		BAD052E429044D1B00EEABFB /* UserConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD052E329044D1B00EEABFB /* UserConfigViewModel.swift */; };
+		BAD052E729044E4400EEABFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD052E629044E4400EEABFB /* User.swift */; };
+		BAD052EA2904520700EEABFB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD052E92904520700EEABFB /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA7052B72906D97300D70E33 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		BA8B3B2928FEE3E60007ABD1 /* gotcha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gotcha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8B3B2C28FEE3E60007ABD1 /* gotchaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gotchaApp.swift; sourceTree = "<group>"; };
 		BA8B3B3028FEE3E90007ABD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +96,9 @@
 		BAD052D82900500900EEABFB /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
 		BAD052DC2900515D00EEABFB /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 		BAD052DF290057A700EEABFB /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		BAD052E329044D1B00EEABFB /* UserConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfigViewModel.swift; sourceTree = "<group>"; };
+		BAD052E629044E4400EEABFB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BAD052E92904520700EEABFB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,9 +130,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA7052B62906D93A00D70E33 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BA7052B72906D97300D70E33 /* Brand.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		BA8B3B2028FEE3E60007ABD1 = {
 			isa = PBXGroup;
 			children = (
+				BA7052B62906D93A00D70E33 /* Util */,
 				BA8B3B2B28FEE3E60007ABD1 /* gotcha */,
 				BA8B3B3C28FEE3EA0007ABD1 /* gotchaTests */,
 				BA8B3B4628FEE3EA0007ABD1 /* gotchaUITests */,
@@ -146,11 +163,11 @@
 		BA8B3B2B28FEE3E60007ABD1 /* gotcha */ = {
 			isa = PBXGroup;
 			children = (
+				BAD052E8290451EC00EEABFB /* Network */,
+				BAD052E529044E3700EEABFB /* Model */,
 				BAD052D329004E5A00EEABFB /* Components */,
 				BA94054529016FAF00EF41EC /* GoogleService-Info.plist */,
 				BA8B3B7F29002F080007ABD1 /* Resources */,
-				BA8B3B6428FEFA690007ABD1 /* Model */,
-				BA8B3B6328FEFA5F0007ABD1 /* Util */,
 				BA8B3B6228FEFA540007ABD1 /* Core */,
 				BA8B3B5D28FEF8510007ABD1 /* Extension */,
 				BA8B3B5828FEF5860007ABD1 /* Info.plist */,
@@ -213,22 +230,9 @@
 				BA8B3B6628FEFAAC0007ABD1 /* Home */,
 				BA8B3B6528FEFAA80007ABD1 /* Tab */,
 				BAD052DF290057A700EEABFB /* SwitchView.swift */,
+				BAD052E329044D1B00EEABFB /* UserConfigViewModel.swift */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		BA8B3B6328FEFA5F0007ABD1 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		BA8B3B6428FEFA690007ABD1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		BA8B3B6528FEFAA80007ABD1 /* Tab */ = {
@@ -303,6 +307,22 @@
 				BA94054B2901A3BB00EF41EC /* UserConfigTextField.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		BAD052E529044E3700EEABFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAD052E629044E4400EEABFB /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BAD052E8290451EC00EEABFB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BAD052E92904520700EEABFB /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,13 +474,17 @@
 				BA8B3B2D28FEE3E60007ABD1 /* gotchaApp.swift in Sources */,
 				BA8B3B6E28FEFAFA0007ABD1 /* SheetView.swift in Sources */,
 				BA94054C2901A3BB00EF41EC /* UserConfigTextField.swift in Sources */,
+				BAD052E429044D1B00EEABFB /* UserConfigViewModel.swift in Sources */,
+				BAD052E729044E4400EEABFB /* User.swift in Sources */,
 				BAD052D92900500900EEABFB /* GoogleSignInButton.swift in Sources */,
+				BAD052EA2904520700EEABFB /* NetworkManager.swift in Sources */,
 				BA8B3B7228FEFCA00007ABD1 /* HomeView.swift in Sources */,
 				BA8B3B7C29002E780007ABD1 /* LogInView.swift in Sources */,
 				BA8B3B8E29003A080007ABD1 /* GoogleAuth.swift in Sources */,
 				BA94054E2901B90600EF41EC /* UserConfigView.swift in Sources */,
 				BA8B3B6928FEFACA0007ABD1 /* TabView.swift in Sources */,
 				BA8B3B7728FEFCE20007ABD1 /* ProfileView.swift in Sources */,
+				BA7052B82906D97300D70E33 /* Brand.swift in Sources */,
 				BAD052E0290057A700EEABFB /* SwitchView.swift in Sources */,
 				BA8B3B5F28FEF85F0007ABD1 /* Color.swift in Sources */,
 			);
